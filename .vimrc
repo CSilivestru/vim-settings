@@ -10,6 +10,8 @@ call pathogen#infect()
 " Command-T ignores
 
 let g:CommandTWildIgnore=&wildignore . ",**/node_modules/*,**coverage/*,**/bower_components/*"
+nmap <S-t> :CommandT<cr>
+let g:CommandTMaxFiles=50000
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color settings
@@ -129,9 +131,13 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  Avoid hitting escape in insert mode
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  NERD Tree Commands
 
 nnoremap <silent> <C-e><C-f> :NERDTreeToggle<CR>
+map <leader>r :NERDTreeFind<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  Tag List Commands
@@ -238,3 +244,20 @@ map <leader>S :setlocal nospell<CR>
 if filereadable(".vim.custom")
     so .vim.custom
 endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Airline Config
+
+" Enable the list of buffers
+ let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+ let g:airline#extensions#tabline#fnamemod = ':t'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Buffer config
+" Move to the next buffer
+ nmap <S-h> :bnext<CR>
+
+" Move to the previous buffer
+ nmap <S-l> :bprevious<CR>
