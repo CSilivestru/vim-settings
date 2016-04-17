@@ -74,6 +74,7 @@ set noswapfile
 " Allow switching between buffers without saving .
 
 set hidden
+:command! DD :bn|:bd#
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Always show line numbers.
@@ -251,13 +252,11 @@ endif
 " Enable the list of buffers
  let g:airline#extensions#tabline#enabled = 1
 
-" Show just the filename
- let g:airline#extensions#tabline#fnamemod = ':t'
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Buffer config
 " Move to the next buffer
- nmap <S-h> :bnext<CR>
+ nmap <S-L> :bnext<CR>
 
 " Move to the previous buffer
- nmap <S-l> :bprevious<CR>
+ nmap <S-H> :bprevious<CR>
+
